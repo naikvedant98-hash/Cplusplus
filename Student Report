@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    
+    string name;
+    char division;
+    int roll_no,age,eng,mar,hin,maths,sci,total;
+
+    cout << "Enter your Name : ";
+    cin >> name;
+
+    cout << "Enter your Roll No. : ";
+    cin >> roll_no;
+
+    cout << "Enter your Age : ";
+    cin >> age;
+
+    cout << "Enter your Division : ";
+    cin >> division;
+
+    cout << "Enter your marks in English : ";
+    cin >> eng;
+    cout << "Enter your marks in Marathi : ";
+    cin >> mar;
+    cout << "Enter your marks in Hindi : ";
+    cin >> hin;
+    cout << "Enter your marks in Maths : ";
+    cin >> maths;
+    cout << "Enter your marks in Science : ";
+    cin >> sci;
+
+    total = eng+mar+hin+maths+sci;
+    
+    float percentage = total/5;
+
+    cout << "\n\n::Student Report::\n";
+    cout << "Name : " << name << endl;
+    cout << "Roll No. : " << roll_no << endl;
+    cout << "Age : " << age << endl;
+    cout << "Division : " << division << endl;
+
+    cout << "Total Marks: " << total << "/500" << endl;
+    cout << "Percentage: " << percentage << "%" << endl;
+
+    return 0;
+}
+
+\\Output
+Enter your Name : Vedant
+Enter your Roll No. : 17
+Enter your Age : 18
+Enter your Division : B
+Enter your marks in English : 82
+Enter your marks in Marathi : 86
+Enter your marks in Hindi : 90
+Enter your marks in Maths : 97
+Enter your marks in Science : 95
+
+
+::Student Report::
+Name: Vedant
+Roll No: 17
+Age: 18
+Division: B
+Total Marks: 450/500
+Percentage: 90%
+
+
