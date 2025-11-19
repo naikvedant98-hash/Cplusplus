@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int num;
+    cout << "Enter the value of num : ";
+    cin >> num;
+
+    int original = num;   
+    int value = 0;        
+
+    while(num > 0) {
+        int rem = num % 10; 
+        value += rem * rem * rem; 
+        num /= 10;
+    }
+
+    if (original == value) {
+        cout << original << " is an Armstrong number";
+    } else {
+        cout << original << " is NOT an Armstrong number";
+    }
+
+    return 0;
+}
+
+//Output
+Enter the value of num : 153
+153 is an Armstrong number
