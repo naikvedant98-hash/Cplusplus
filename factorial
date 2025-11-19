@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int num1;
+    long long fact = 1; 
+
+    cout << "Enter a number : ";
+    cin >> num1;
+
+    for (int i = 1; i <= num1; i++) {
+        fact *= i;
+    }
+
+    cout << "Factorial of " << num1 << " is " << fact;
+
+    return 0;
+}
+
+//Output
+Enter a number : 5
+Factorial of 5 is 120
