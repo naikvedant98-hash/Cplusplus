@@ -1,48 +1,30 @@
 #include <iostream>
-#include <string>
-#include <cctype>
 using namespace std;
 
-bool isPalindrome(string str) {
-
-    for (int i = 0; i < str.length(); i++) {
-        str[i] = tolower(str[i]);
-    }
-
-    int start = 0;
-    int end = str.length() - 1;
-
-    while (start < end) {
-        if (str[start] != str[end]) {
-            return false;
-        }
-        start++;
-        end--;
-    }
-    return true;
-}
-
 int main() {
-    string input;
-
-    cout << "Enter a string: ";
-    getline(cin, input);
-
-    if (isPalindrome(input)) {
-        cout << "The string is a palindrome.";
-    } else {
-        cout << "The string is not a palindrome.";
-    }
+    
+    int num, num1, value=0;
+        
+    cout << "Enter the value of num : ";
+    cin >> num;
+    
+    num1 = num;
+    
+    while(num > 0) {
+		int rem = num % 10;
+		value = value *10 + rem;
+		num /= 10;
+	}
+	
+	if(num1 == value){
+	cout << value <<  " is a palindrome";    
+	}else{
+	    cout << num1 << " is NOT a palindrome";
+	}
 
     return 0;
 }
 
 //Output
-
-Enter a string: Anna
-The string is a palindrome.
-
-Enter a string: 121
-The string is a palindrome.
-
-
+Enter the value of num : 1221
+1221 is a palindrome
