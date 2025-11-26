@@ -1,0 +1,136 @@
+#include <iostream>
+using namespace std;
+
+// ------------------ Calculator Functions ------------------
+int add(int x, int y) { return x + y; }
+int sub(int x, int y) { return x - y; }
+int mul(int x, int y) { return x * y; }
+int divi(int x, int y) { return x / y; }
+int mod(int x, int y) { return x % y; }
+
+void calci() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    cout << "Addition = " << add(a, b) << endl;
+    cout << "Subtraction = " << sub(a, b) << endl;
+    cout << "Multiplication = " << mul(a, b) << endl;
+
+    if(b != 0){
+        cout << "Division = " << divi(a, b) << endl;
+        cout << "Modulus = " << mod(a, b) << endl;
+    } else {
+        cout << "Cannot divide by zero!" << endl;
+    }
+}
+
+// ------------------ Armstrong Number ------------------
+void arm() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    int original = num, value = 0;
+
+    while (num > 0) {
+        int rem = num % 10;
+        value += rem * rem * rem;
+        num /= 10;
+    }
+
+    if (original == value)
+        cout << original << " is an Armstrong number";
+    else
+        cout << original << " is NOT an Armstrong number";
+}
+
+// ------------------ Factorial ------------------
+void fact() {
+    int num;
+    long long factorial = 1;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    for (int i = 1; i <= num; i++)
+        factorial *= i;
+
+    cout << "Factorial of " << num << " is " << factorial;
+}
+
+// ------------------ Palindrome Number ------------------
+void palin() {
+    int num, original, rev = 0;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    original = num;
+
+    while (num > 0) {
+        int rem = num % 10;
+        rev = rev * 10 + rem;
+        num /= 10;
+    }
+
+    if (original == rev)
+        cout << original << " is a Palindrome";
+    else
+        cout << original << " is NOT a Palindrome";
+}
+
+// ------------------ Reverse Number ------------------
+void revNum() {
+    int num, rev = 0;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    while (num > 0) {
+        int rem = num % 10;
+        rev = rev * 10 + rem;
+        num /= 10;
+    }
+
+    cout << "Reversed number is: " << rev;
+}
+
+// ------------------ Main Menu ------------------
+int main() {
+
+    cout << "--- MENU ---";
+    cout << "\n1. Calculator";
+    cout << "\n2. Reverse Number";
+    cout << "\n3. Palindrome Check";
+    cout << "\n4. Armstrong Check";
+    cout << "\n5. Factorial\n";
+    
+    cout << "\nEnter your choice: ";
+
+    int choice;
+    cin >> choice;
+
+    switch(choice) {
+        case 1: calci(); break;
+        case 2: revNum(); break;
+        case 3: palin(); break;
+        case 4: arm(); break;
+        case 5: fact(); break;
+        default: cout << "Invalid choice!";
+    }
+
+    return 0;
+}
+
+//Output
+--- MENU ---
+1. Calculator
+2. Reverse Number
+3. Palindrome Check
+4. Armstrong Check
+5. Factorial
+
+Enter your choice: 5
+Enter a number: 5
+Factorial of 5 is 120
