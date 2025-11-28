@@ -1,0 +1,55 @@
+    #include <iostream>
+    using namespace std;    
+        
+    int main() {
+        
+        int size,i;
+        cout << "Enter the size of array : ";
+        cin >> size;
+        
+        int arr[size],sum=0;
+    
+        for(i = 0;i<size;i++ ){
+            cout << "Enter the element " << i+1 << " : ";
+            cin>>arr[i];
+        }
+        
+        cout << "\nYour Array is : ";
+        for(i = 0;i<size;i++ ){
+            cout << arr[i] << " ";
+        }
+        
+        int search;
+        cout << "\n\nEnter the value to search in array : ";
+        cin >> search;
+    
+        int found = 0;
+        
+        for(i = 0; i < size; i++) {
+            if(arr[i] == search) {
+                found = i;
+                break;
+            }
+        }
+    
+        if(found != 0){
+            cout << "Element found in index " << found ;
+        }else{
+            cout << "Element Not Found !! ";
+        }
+        
+        return 0;
+    }
+
+//Output
+Enter the size of array : 5
+Enter the element 1 : 2
+Enter the element 2 : 4
+Enter the element 3 : 6
+Enter the element 4 : 8
+Enter the element 5 : 10
+
+Your Array is : 2 4 6 8 10 
+
+Enter the value to search in array : 6
+Element found in index 2
