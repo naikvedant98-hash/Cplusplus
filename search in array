@@ -1,4 +1,4 @@
-    #include <iostream>
+      #include <iostream>
     using namespace std;    
         
     int main() {
@@ -23,7 +23,7 @@
         cout << "\n\nEnter the value to search in array : ";
         cin >> search;
     
-        int found = 0;
+        int found = -1;
         
         for(i = 0; i < size; i++) {
             if(arr[i] == search) {
@@ -32,14 +32,15 @@
             }
         }
     
-        if(found != 0){
+        if(found != -1){
             cout << "Element found in index " << found ;
         }else{
-            cout << "Element Not Found !! ";
+            cout << "Element Not Found !!! ";
         }
         
         return 0;
     }
+
 
 //Output
 Enter the size of array : 5
