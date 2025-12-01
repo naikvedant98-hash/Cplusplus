@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int row1, col1;
+    cout << "Enter number of rows for matrix 1 : ";
+    cin >> row1;
+	 
+    cout << "Enter number of columns for matrix 1 : ";
+    cin >> col1;
+
+    // Create 2D dynamic array
+    int **arr1 = new int*[row1];
+    for (int i = 0; i < row1; i++) {
+        arr1[i] = new int[col1];
+    }
+
+    cout << "Enter " << (row1 * col1) << " elements of matrix 1 :\n";
+    for (int i = 0; i < row1; i++) {
+        for (int j = 0; j < col1; j++) {
+            cin >> arr1[i][j];
+        }
+    }
+
+    cout << "\nMatrix 1 is:\n";
+    for (int i = 0; i < row1; i++) {
+        for (int j = 0; j < col1; j++) {
+            cout << arr1[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+    // Free memory
+    for (int i = 0; i < row1; i++) {
+        delete[] arr1[i];
+    }
+    delete[] arr1;
+    
+    cout << "\n-------------------------------------------------\n";
+    
+    int row2, col2;
+    cout << "\nEnter number of rows for matrix 2 : ";
+    cin >> row2;
+	 
+    cout << "Enter number of columns for matrix 2 : ";
+    cin >> col2;
+
+    // Create 2D dynamic array
+    int **arr2 = new int*[row2];
+    for (int i = 0; i < row2; i++) {
+        arr2[i] = new int[col2];
+    }
+
+    cout << "Enter " << (row2 * col2) << " elements of matrix 2 :\n";
+    for (int i = 0; i < row2; i++) {
+        for (int j = 0; j < col2; j++) {
+            cin >> arr2[i][j];
+        }
+    }
+
+    cout << "\nMatrix 2 is:\n";
+    for (int i = 0; i < row2; i++) {
+        for (int j = 0; j < col2; j++) {
+            cout << arr2[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+    // Free memory
+    for (int i = 0; i < row1; i++) {
+        delete[] arr2[i];
+    }
+    delete[] arr2;
+    
+    return 0;
+}
+
+//Output
+Enter number of rows for matrix 1 : 2
+Enter number of columns for matrix 1 : 2
+Enter 4 elements of matrix 1 :
+1
+0
+0
+1
+
+Matrix 1 is:
+1 0 
+0 1 
+
+-------------------------------------------------
+
+Enter number of rows for matrix 2 : 2
+Enter number of columns for matrix 2 : 2
+Enter 4 elements of matrix 2 :
+0
+1
+1
+0
+
+Matrix 2 is:
+0 1 
+1 0 
