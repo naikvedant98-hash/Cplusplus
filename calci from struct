@@ -1,0 +1,57 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+struct Calculator{
+    int num1,num2;
+};
+
+int main() {
+    
+    struct Calculator m;
+    
+    cout << "Enter the value of num1 : ";
+    cin >> m.num1;
+    
+    cout << "Enter the value of num2 : ";
+    cin >> m.num2;
+
+    int choice;
+    cout << "\nEnter 1 for Addition" ;
+    cout << "\nEnter 2 for Subtraction" ;
+    cout << "\nEnter 3 for Multiplication" ;
+    cout << "\nEnter 4 for Division" ;
+    cout << "\nEnter 5 for Modulleas\n" ;
+    
+    cout << "\nEnter the value of your choice : ";
+    cin >> choice;
+    
+    if(choice == 1){
+        cout<<"Addition is "<<m.num1<<" + "<<m.num2<<" = "<<m.num1+m.num2;
+    }else if(choice == 2){
+        cout<<"Subtraction is "<<m.num1<<" - "<<m.num2<<" = "<<m.num1-m.num2;
+    }else if(choice == 3){
+        cout<<"Multiplication is "<<m.num1<<" * "<<m.num2<<" = "<<m.num1*m.num2;
+    }else if(choice == 4){
+        cout<<"Division is "<<m.num1<<" / "<<m.num2<<" = "<<m.num1/m.num2;
+    }else if(choice == 5){
+        cout<<"Moduleas is "<<m.num1<<" % "<<m.num2<<" = "<<m.num1%m.num2;
+    }else{
+        cout<<"Invalid choice !!! Try Again ";
+    }
+
+  //Output
+  Enter the value of num1 : 12
+Enter the value of num2 : 5
+
+Enter 1 for Addition
+Enter 2 for Subtraction
+Enter 3 for Multiplication
+Enter 4 for Division
+Enter 5 for Modulleas
+
+Enter the value of your choice : 3
+Multiplication is 12 * 5 = 60
+
+    return 0;
+}
