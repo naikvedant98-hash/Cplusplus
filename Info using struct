@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+struct Date {
+    int day, month, year;
+};
+
+struct Person {
+    string name;
+    Date dob;
+};
+
+int main() {
+    Person a;
+
+    cout << "Enter name: ";
+    cin >> a.name;
+
+    cout << "Enter date of birth (day month year): ";
+    cin >> a.dob.day >> a.dob.month >> a.dob.year;
+
+    cout << "\nName: " << a.name;
+    cout << "\nDOB: " << a.dob.day << "/"
+         << a.dob.month << "/"
+         << a.dob.year;
+
+    return 0;
+}
+
+//Output
+Enter name: Vedant
+Enter date of birth (day month year): 07
+03
+2006
+
+Name: Vedant
+DOB: 7/3/2006
