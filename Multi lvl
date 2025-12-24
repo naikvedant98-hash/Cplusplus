@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    void start() {
+        cout << "Vehicle starts" << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    void drive() {
+        cout << "Car is driving" << endl;
+    }
+};
+
+class SportsCar : public Car {
+public:
+    void speed() {
+        cout << "Sports car is fast" << endl;
+    }
+};
+
+int main() {
+    SportsCar sc;
+    sc.start();
+    sc.drive();
+    sc.speed();
+    return 0;
+}
+
+
+//Output
+Vehicle starts
+Car is driving
+Sports car is fast
