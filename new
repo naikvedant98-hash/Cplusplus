@@ -1,0 +1,82 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class Calculator{
+public:
+    int num1,num2;  
+    
+    Calculator(){
+    cout<<"Enter the value of num1 : ";
+    cin>>num1;
+    
+    cout<<"Enter the value of num2 : ";
+    cin>>num2;
+    }
+    
+    int add(){
+        return num1+num2;
+    }
+    
+    int sub(){
+        return num1-num2;
+    }
+    
+    int mul(){
+        return num1*num2;
+    }
+    
+    int divi(){
+        return num1/num2;
+    }
+    
+    int mod(){
+        return num1%num2;
+    }
+};
+
+int main() {
+    Calculator c1;
+    
+    int choice;
+    
+    cout << "\nChoose an operation:\n";
+    cout << "1. Addition \n";
+    cout << "2. Subtraction \n";
+    cout << "3. Multiplication \n";
+    cout << "4. Division \n";
+    cout << "5. Moduleas \n";
+    cout << "6. Want all the operations\n\n";
+    cout << "Enter your choice: ";
+    cin >> choice; 
+    
+    switch (choice) {
+        case 1:
+            cout << "Addition = " << c1.add();
+            break;
+        case 2:
+            cout << "Subtraction = " << c1.sub();
+            break;
+        case 3:
+            cout << "Multiplication = " << c1.mul();
+            break;
+        case 4:
+            cout << "Division = " << c1.divi();
+            break;
+        case 5:
+            cout << "Moduleas = " << c1.mod();
+            break;
+        case 6:
+            cout << "Do you want it all, This is the Result!!";
+            cout << "\nAddition = " << c1.add();
+            cout << "\nSubtraction = " << c1.sub();
+            cout << "\nMultiplication = " << c1.mul();
+            cout << "\nDivision = " << c1.divi();
+            cout << "\nModuleas = " << c1.mod();
+            break;
+        default:
+            cout << "Invalid choice !!!";
+    }
+    
+    return 0;
+}
