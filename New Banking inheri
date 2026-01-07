@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Account {
+protected:
+    int accountNumber;
+    string name;
+    double balance;
+
+public:
+    void input() {
+        cout << "Enter Account Number: ";
+        cin >> accountNumber;
+        cout << "Enter Account Holder Name: ";
+        cin >> name;
+        cout << "Enter Balance: ";
+        cin >> balance;
+    }
+
+    void display() {
+        cout << "\nAccount Number: " << accountNumber;
+        cout << "\nName: " << name;
+        cout << "\nBalance: " << balance;
+    }
+};
+
+// Derived class 1
+class SavingsAccount : public Account {
+public:
+    void calculateInterest() {
+        double interest = balance * 0.04; // 4% interest
+        cout << "\nInterest (4%): " << interest;
+    }
+};
+
+// Derived class 2
+class CurrentAccount : public Account {
+public:
+    void checkMinimumBalance() {
+        if (balance < 1000)
+            cout << "\nMinimum balance not maintained!";
+        else
+            cout << "\nMinimum balance maintained.";
+    }
+};
+
+int main() {
+    cout << "----- Savings Account -----\n";
+    SavingsAccount sa;
+    sa.input();
+    sa.display();
+    sa.calculateInterest();
+
+    cout << "\n\n----- Current Account -----\n";
+    CurrentAccount ca;
+    ca.input();
+    ca.display();
+    ca.checkMinimumBalance();
+
+    return 0;
+}
+
+//Output
+----- Savings Account -----
+Enter Account Number: 123456789
+Enter Account Holder Name: Vedant
+Enter Balance: 456123456132
+
+Account Number: 123456789
+Name: Vedant
+Balance: 4.56123e+11
+Interest (4%): 1.82449e+10
+
+----- Current Account -----
+Enter Account Number: 789456123
+Enter Account Holder Name: Sonu
+Enter Balance: 456789312465789
+
+Account Number: 789456123
+Name: Sonu
+Balance: 4.56789e+14
+Minimum balance maintained.
+
+
+
+
+
