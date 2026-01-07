@@ -1,0 +1,149 @@
+#include <iostream>
+using namespace std;
+
+// ======================= Base Class =======================
+class Account {
+protected:
+    int accNo;
+    string name;
+    double balance;
+
+public:
+    void createAccount() {
+        cout << "\nEnter Account Number: ";
+        cin >> accNo;
+        cout << "Enter Account Holder Name: ";
+        cin >> name;
+        cout << "Enter Initial Balance: ";
+        cin >> balance;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Deposited Amount: " << amount << endl;
+    }
+
+    void display() {
+        cout << "\nAccount Number: " << accNo;
+        cout << "\nAccount Holder: " << name;
+        cout << "\nBalance: " << balance << endl;
+    }
+};
+
+// ======================= Savings Account =======================
+class SavingsAccount : public Account {
+private:
+    double interestRate;
+
+public:
+    void setInterestRate() {
+        cout << "Enter Interest Rate (%): ";
+        cin >> interestRate;
+    }
+
+    void calculateInterest() {
+        double interest = (balance * interestRate) / 100;
+        cout << "Savings Account Interest: " << interest << endl;
+    }
+};
+
+// ======================= Current Account =======================
+class CurrentAccount : public Account {
+private:
+    const double minBalance = 1000;
+    const double serviceCharge = 200;
+
+public:
+    void checkMinimumBalance() {
+        if (balance < minBalance) {
+            cout << "Minimum balance not maintained!" << endl;
+            balance -= serviceCharge;
+            cout << "Service Charge Applied: " << serviceCharge << endl;
+        } else {
+            cout << "Minimum balance maintained." << endl;
+        }
+    }
+};
+
+// ======================= Fixed Deposit Account =======================
+class FixedDepositAccount : public Account {
+private:
+    int lockInPeriod;   // in years
+    double fdRate;      // higher interest rate
+
+public:
+    void setFDDetails() {
+        cout << "Enter Lock-in Period (years): ";
+        cin >> lockInPeriod;
+        cout << "Enter FD Interest Rate (%): ";
+        cin >> fdRate;
+    }
+
+    void calculateFDInterest() {
+        double interest = (balance * fdRate * lockInPeriod) / 100;
+        cout << "Fixed Deposit Interest: " << interest << endl;
+    }
+};
+
+// ======================= Main Function =======================
+int main() {
+
+    cout << "===== SAVINGS ACCOUNT =====";
+    SavingsAccount sa;
+    sa.createAccount();
+    sa.setInterestRate();
+    sa.deposit(3000);
+    sa.display();
+    sa.calculateInterest();
+
+    cout << "\n===== CURRENT ACCOUNT =====";
+    CurrentAccount ca;
+    ca.createAccount();
+    ca.display();
+    ca.checkMinimumBalance();
+
+    cout << "\n===== FIXED DEPOSIT ACCOUNT =====";
+    FixedDepositAccount fd;
+    fd.createAccount();
+    fd.setFDDetails();
+    fd.display();
+    fd.calculateFDInterest();
+
+    return 0;
+}
+
+//Output
+===== SAVINGS ACCOUNT =====
+Enter Account Number: 147852369
+Enter Account Holder Name: Vedant
+Enter Initial Balance: 753159
+Enter Interest Rate (%): 4
+Deposited Amount: 3000
+
+Account Number: 147852369
+Account Holder: Vedant
+Balance: 756159
+Savings Account Interest: 30246.4
+
+===== CURRENT ACCOUNT =====
+Enter Account Number: 369852147
+Enter Account Holder Name: Ved
+Enter Initial Balance: 951357
+
+Account Number: 369852147
+Account Holder: Ved
+Balance: 951357
+Minimum balance maintained.
+
+===== FIXED DEPOSIT ACCOUNT =====
+Enter Account Number: 852456
+Enter Account Holder Name: me: 
+Enter Initial Balance: 123456
+Enter Lock-in Period (years): 5
+Enter FD Interest Rate (%): 
+7
+
+Account Number: 852456
+Account Holder: me:
+Balance: 123456
+Fixed Deposit Interest: 43209.6
