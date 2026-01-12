@@ -1,0 +1,61 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class BankAccount{
+private:
+    int balance;
+    
+public:
+    BankAccount(){
+        balance=0;
+    }    
+    
+    void setBalance(int b){
+        if (b >= 0){
+            balance = b;
+        }else{
+            cout<<"Invalid Input!!!";
+        }
+    }
+    
+    void Deposit(int amt){
+        if (amt > 0){
+            balance += amt;
+        }else{
+            cout<<"Invalid input!!!";
+        }
+    }
+    
+    void Withdraw(int amt){
+        if(amt <= 0){
+            cout<<"Invalid Amount";
+        }else if (amt>balance){
+            cout<<"Insufficient balance!";
+        }else{
+            balance -= amt;
+        }
+    }
+    
+    int getBalance(){
+        return balance;
+    }
+    
+};
+
+int main() {
+   
+    BankAccount bank;
+    
+    bank.setBalance(5000);
+    bank.Deposit(2000);
+    bank.Withdraw(1000);
+    
+    cout<<"Your Current Balance is : " << bank.getBalance();
+
+    return 0;
+}
+
+//Output
+Your Current Balance is : 6000
+
