@@ -1,0 +1,150 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class BankAccount {
+private:
+    char accHolder[50];
+    char accNumber[16];   
+    float balance;
+
+public:
+    void getData() {
+        cout << "Enter Account Holder Name: ";
+        cin >> accHolder;
+
+        // Account number validation
+        while (true) {
+            cout << "Enter 15-digit Account Number: ";
+            cin >> accNumber;
+
+            if (strlen(accNumber) == 15) {
+                break;
+            } else {
+                cout << "Account number must be exactly 15 digits!\n";
+            }
+        }
+
+        cout << "Enter Initial Balance: ";
+        cin >> balance;
+    }
+
+    void deposit() {
+        float amount;
+        cout << "Enter amount to deposit: ";
+        cin >> amount;
+
+        if (amount > 0) {
+            balance += amount;
+            cout << "Deposit successful!\n";
+        } else {
+            cout << "Invalid amount!\n";
+        }
+    }
+
+    void withdraw() {
+        float amount;
+        cout << "Enter amount to withdraw: ";
+        cin >> amount;
+
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            cout << "Withdrawal successful!\n";
+        } else {
+            cout << "Insufficient balance!\n";
+        }
+    }
+
+    void display() {
+        cout << "\n--- Account Details ---\n";
+        cout << "Name        : " << accHolder << endl;
+        cout << "Account No  : " << accNumber << endl;
+        cout << "Balance     : " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount acc;
+    int choice = 0;
+
+    acc.getData();
+
+    while (true) {
+        cout << "\n===== MENU =====\n";
+        cout << "1. Deposit\n";
+        cout << "2. Withdraw\n";
+        cout << "3. Display\n";
+        cout << "4. Exit\n";
+        cout << "Enter choice: ";
+
+        cin >> choice;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid input! Enter a number.\n";
+            continue;
+        }
+
+        switch (choice) {
+            case 1:
+                acc.deposit();
+                break;
+            case 2:
+                acc.withdraw();
+                break;
+            case 3:
+                acc.display();
+                break;
+            case 4:
+                cout << "Thank You!!!\n";
+                return 0;
+            default:
+                cout << "Invalid choice!\n";
+        }
+    }
+}
+
+
+//Output
+Enter Account Holder Name: Vedant
+Enter 15-digit Account Number: 852456753951456
+Enter Initial Balance: 10000
+
+===== MENU =====
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+Enter choice: 1
+Enter amount to deposit: 3000
+Deposit successful!
+
+===== MENU =====
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+Enter choice: 2
+Enter amount to withdraw: 5000
+Withdrawal successful!
+
+===== MENU =====
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+Enter choice: 3
+
+--- Account Details ---
+Name        : Vedant
+Account No  : 852456753951456
+Balance     : 8000
+
+===== MENU =====
+1. Deposit
+2. Withdraw
+3. Display
+4. Exit
+Enter choice: 4
+Thank You!!!
