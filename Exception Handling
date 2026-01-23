@@ -1,0 +1,59 @@
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main() {
+    int pin, enteredPin;
+    double balance = 5000.0;
+    double withdrawAmount;
+
+    // Step 1: Set PIN (user input)
+    cout << "Set your ATM PIN: ";
+    cin >> pin;
+
+    try {
+        // Step 2: Verify PIN
+        cout << "Enter your ATM PIN: ";
+        cin >> enteredPin;
+
+        if (enteredPin != pin)
+            throw runtime_error("Invalid PIN! Access denied.");
+
+        // Step 3: Enter withdrawal amount
+        cout << "Enter withdrawal amount: ";
+        cin >> withdrawAmount;
+
+        if (withdrawAmount <= 0)
+            throw runtime_error("Invalid withdrawal amount!");
+
+        if (withdrawAmount > balance)
+            throw runtime_error("Insufficient balance!");
+
+        if (withdrawAmount > 2000)
+            throw runtime_error("Withdrawal limit exceeded! Max limit is 2000.");
+
+        // Step 4: Successful transaction
+        balance -= withdrawAmount;
+        cout << "\nTransaction successful!" << endl;
+        cout << "Remaining balance: " << balance << endl;
+    }
+    catch (runtime_error &e) {
+        cout << "\nATM Error: " << e.what() << endl;
+    }
+    catch (...) {
+        cout << "\nUnknown error occurred!" << endl;
+    }
+
+    cout << "\nThank you for using the ATM." << endl;
+    return 0;
+}
+
+//OUTPUT
+Set your ATM PIN: 1234
+Enter your ATM PIN: 1234
+Enter withdrawal amount: 1500
+
+Transaction successful!
+Remaining balance: 3500
+
+Thank you for using the ATM.
